@@ -1,0 +1,30 @@
+ 
+ apt update -y
+ sudo apt-get install openjdk-11-jdk -y
+ sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" >> /etc/apt/sources.list.d/pgdg.list'
+ wget -q https://www.postgresql.org/media/keys/ACCC4CF8.asc -O - | sudo apt-key add -
+ sudo apt install postgresql postgresql-contrib -y
+ sudo systemctl enable postgresql
+ sudo systemctl start postgresql
+ sudo passwd postgres
+ su - postgres
+ sudo apt-get install zip -y
+ sudo wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-8.9.10.61524.zip
+ sudo unzip sonarqube-sonarqube-8.9.10.61524.zip.zip
+ 
+ sudo unzip sonarqube-sonarqube-8.9.10.61524.zip
+ sudo unzip sonarqube-8.9.10.61524.zip
+
+  sudo mv sonarqube-8.9.10.61524  /opt/sonarqube
+  sudo groupadd sonar
+  sudo useradd -d /opt/sonarqube -g sonar sonar
+  sudo chown sonar:sonar /opt/sonarqube -R
+  sudo nano /opt/sonarqube/conf/sonar.properties
+  sudo nano /opt/sonarqube/bin/linux-x86-64/sonar.sh
+  sudo nano /etc/systemd/system/sonar.service
+  sudo systemctl enable sonar
+  sudo systemctl start sonar
+  sudo systemctl status sonar
+  sudo nano /etc/sysctl.conf
+  sudo reboot
+  apt update -y
